@@ -3,3 +3,16 @@
 
 /* Shop product pages */
 .product-layout{display:grid;grid-template-columns:minmax(280px,.9fr) minmax(320px,1.1fr);gap:clamp(28px,6vw,86px);align-items:center}.product-art{min-height:460px;border-radius:18px;padding:40px 30px;background:linear-gradient(145deg,#55301e 0%,#9a6b42 52%,#e0b477 100%);color:#fff3e1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:16px 16px 0 #e5d3bd}.product-art.devotional{background:linear-gradient(145deg,#2f302a,#7e6749 60%,#bc9559)}.product-art span{font-family:Georgia,serif;letter-spacing:.28em;font-size:13px}.product-art strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.9rem,5vw,5.2rem);line-height:.95;font-weight:500;margin:46px 0 18px}.product-art em{font-family:Georgia,serif;font-size:.85rem}.product-art small{margin-top:65px;font-size:.72rem;opacity:.8}.product-options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0}.format-option{display:flex;flex-direction:column;gap:7px;min-height:154px;border:1px solid #cfac83;border-radius:13px;padding:19px;background:white;transition:background .2s,transform .2s}.format-option:hover{background:#f7e6d0;transform:translateY(-2px)}.format-option b{font-size:1.02rem}.format-option span{font-size:.8rem;color:#745640;line-height:1.35}.format-option small{margin-top:auto;color:#8e602d}.edition-info{border-top:1px solid #e2ceb9;border-bottom:1px solid #e2ceb9;padding:15px 0;margin:20px 0}.edition-info p{margin:4px 0}.product-actions{justify-content:flex-start;margin-top:24px}@media(max-width:760px){.product-layout{grid-template-columns:1fr}.product-art{min-height:350px;box-shadow:8px 8px 0 #e5d3bd}.product-options{grid-template-columns:1fr}}
+
+/* Daily devotional signup: give the third-party form proper room */
+.subscribe-section {padding:70px 0;background:#432516;}
+.subscribe-intro {max-width:750px;margin:0 auto 30px;text-align:center;}
+.subscribe-intro h2 {color:#fff5e9;}
+.subscribe-intro p {color:#f4dec9;}
+.subscribe-panel {box-sizing:border-box;max-width:940px;margin:0 auto;padding:34px 36px;background:#fffaf4;color:#432516;border:1px solid #d6b47d;border-radius:20px;box-shadow:0 14px 40px #180d0644;}
+.subscribe-panel h3 {text-align:center;color:#432516;margin-bottom:20px;font-size:clamp(1.8rem,3vw,2.5rem);}
+.subscribe-panel .subscribe-note {color:#765a44;text-align:center;margin:15px 0 0;}
+.surrender-subscribe-form {display:block;width:100%;min-width:0;max-width:100%;margin:0 auto;overflow:visible;}
+.surrender-subscribe-form iframe {display:block;width:100%!important;max-width:100%!important;min-width:0!important;border:0!important;margin:0 auto;}
+.surrender-subscribe-form > div {width:100%;max-width:100%;min-width:0;}
+@media (max-width:700px){.subscribe-section{padding:45px 0}.subscribe-panel{padding:24px 14px}.subscribe-intro{padding:0 6px}}
