@@ -15,8 +15,10 @@ The devotionals and page navigation are viewable. Subscriber forms, checkout, co
 
 ## Daily devotional publishing and delivery
 - Public RSS feed: https://mukiamyrick.github.io/surrender-website/feed.xml
-- Daily delivery requested. Sending time and automated delivery are not yet confirmed or activated.
+- Requested daily delivery time: 7:00 AM America/New_York (including weekends and daylight-saving changes). EmailOctopus signup is embedded, but daily email automation has NOT been activated.
 - The RSS feed currently contains Day 1 as a sample. For each approved newly published devotional, add a fresh `<item>` with a new unique `<guid>`, `<pubDate>`, title, link and short description.
 - The mailing list signup is a placeholder. It is not collecting subscribers.
-- To send automated daily email from new RSS items, connect an RSS-to-email provider, embed its confirmed opt-in form, and configure a daily campaign at the confirmed Eastern time. MailerLite currently lists RSS campaigns on paid plans. Test signup, unsubscribe, timezone and one real campaign before public launch. Do not add private email addresses, tokens, API keys, or credentials to this public repository.
+- To send automated daily email from new RSS items, connect an RSS-to-email provider, embed its confirmed opt-in form, and configure a daily delivery at 7:00 AM America/New_York. MailerLite currently lists RSS campaigns on paid plans. Test signup, unsubscribe, timezone and one real campaign before public launch. Do not add private email addresses, tokens, API keys, or credentials to this public repository.
 - Posting a new web page alone does not send email. The feed must be updated and the email campaign active.
+
+Note: EmailOctopus campaign creation and sending are not available via its API. Configure and test automation or schedule campaigns in the EmailOctopus dashboard. The Starter plan limits each automation to five steps and 10,000 emails/month. Do not describe daily emails as active without a successful test.
