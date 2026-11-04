@@ -62,3 +62,27 @@ document.querySelectorAll('[data-worship-player]').forEach((panel)=>{
   const note=panel.querySelector('.worship-note');
   if(note)note.textContent='The video starts muted when your browser permits autoplay. Choose “Play with sound” to hear worship music. Some browsers may require pressing Play within YouTube.';
 });
+
+
+/* Featured devotional dates follow Eastern Time, independent of EmailOctopus sends.
+   Day 1 November 5, 2026; Days 2–4 on successive mornings at 7 AM. */
+(function(){
+  const days=[{"t":"The Power of Surrender","scripture":"Proverbs 3:5–6","desc":"Place your trust in God, even when you cannot see how everything will unfold.","cls":"sunset"},{"t":"Letting Go of What You Cannot Control","scripture":"1 Peter 5:7","desc":"Release worry and allow God's peace to guide your next step.","cls":"warm"},{"t":"Becoming Who God Created You to Be","scripture":"2 Corinthians 5:17","desc":"Embrace renewal and the identity you are growing into.","cls":"garden"},{"t":"Walking in Purpose","scripture":"Ephesians 2:10","desc":"Take the next faithful step toward meaningful impact.","cls":"walk"}];
+  const fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'});
+  const parts=Object.fromEntries(fmt.formatToParts(new Date()).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));
+  const easternDate=parts.year+'-'+parts.month+'-'+parts.day;
+  const start=Date.UTC(2026,10,5);
+  const today=Date.UTC(Number(parts.year),Number(parts.month)-1,Number(parts.day));
+  const daysSince=Math.floor((today-start)/86400000);
+  const current=Math.max(0,Math.min(days.length-1,daysSince-(Number(parts.hour)<7?1:0)));
+  const d=days[current];
+  const write=(q,v)=>document.querySelectorAll(q).forEach(el=>el.textContent=v);
+  write('[data-todays-day]','Featured devotional · Day '+(current+1));
+  write('[data-todays-title]',d.t);
+  write('[data-todays-scripture]',d.scripture);
+  write('[data-todays-desc]',d.desc);
+  write('[data-todays-art-title]',d.t);
+  document.querySelectorAll('[data-todays-art]').forEach(el=>{el.classList.remove('sunset','warm','garden','walk');el.classList.add(d.cls)});
+  document.querySelectorAll('[data-todays-link]').forEach(el=>el.href='devotional-'+(current+1)+'.html');
+  write('[data-todays-note]','The featured devotional updates at 7:00 AM Eastern on its scheduled date. Previous devotionals remain in the library.');
+})();
