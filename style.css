@@ -16,3 +16,19 @@
 .surrender-subscribe-form iframe {display:block;width:100%!important;max-width:100%!important;min-width:0!important;border:0!important;margin:0 auto;}
 .surrender-subscribe-form > div {width:100%;max-width:100%;min-width:0;}
 @media (max-width:700px){.subscribe-section{padding:45px 0}.subscribe-panel{padding:24px 14px}.subscribe-intro{padding:0 6px}}
+
+
+/* Worship song and video section */
+.worship-section{background:#f5eadb;padding-top:56px;padding-bottom:56px}
+.worship-card{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:36px;align-items:center;background:#fffaf4;border:1px solid #dfc9ad;border-radius:20px;padding:32px;box-shadow:0 12px 35px #43251612}
+.worship-card h2{font-size:clamp(2.2rem,4vw,3.5rem);color:#432516}
+.worship-card h3.worship-track{font-size:clamp(2rem,3vw,2.7rem);margin:7px 0 2px}
+.worship-artist{font-weight:700;color:#8b602f}
+.worship-theme{font-size:.85rem;letter-spacing:.06em;color:#79553b;text-transform:uppercase}
+.worship-note{color:#776250;margin:14px 0 6px}
+.worship-video{width:100%;aspect-ratio:16/9;background:#2b190f;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.worship-video iframe{display:block;width:100%;height:100%;border:0}
+.worship-placeholder{color:#fff;text-align:center}
+.worship-placeholder span{font-size:4rem}
+.worship-play{margin:10px 0 4px}
+@media(max-width:790px){.worship-card{grid-template-columns:1fr;padding:20px;gap:20px}.worship-video{order:-1}}
