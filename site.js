@@ -31,3 +31,34 @@ if(document.querySelector('textarea[data-journal]')) {
     window.location.href=mailto;
   });
 }
+
+
+/* SURRENDER worship video: official YouTube embed; browsers generally mute autoplay. */
+document.querySelectorAll('[data-worship-player]').forEach((panel)=>{
+  const song={id:'QS04WbSnxok',name:'Trust In God',artist:'Elevation Worship',reason:'A worship reminder that God is faithful, even when the next step is uncertain.'};
+  const set=(selector,value)=>{const el=panel.querySelector(selector);if(el)el.textContent=value;};
+  set('[data-worship-theme]','Featured worship for your devotional');
+  set('[data-worship-title]',song.name);
+  set('[data-worship-artist]',song.artist);
+  set('[data-worship-reason]',song.reason);
+  const link=panel.querySelector('[data-worship-link]');
+  if(link)link.href='https://www.youtube.com/watch?v='+song.id;
+  const slot=panel.querySelector('[data-worship-video]');
+  const btn=panel.querySelector('[data-worship-play]');
+  if(!slot||!btn)return;
+  const frame=document.createElement('iframe');
+  frame.title='Trust In God — Elevation Worship (official live worship video)';
+  frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+  frame.allowFullscreen=true;
+  frame.loading='eager';
+  frame.referrerPolicy='strict-origin-when-cross-origin';
+  frame.src='https://www.youtube-nocookie.com/embed/'+song.id+'?autoplay=1&mute=1&playsinline=1&rel=0';
+  slot.replaceChildren(frame);
+  btn.textContent='🔊 Play with sound';
+  btn.addEventListener('click',()=>{
+    frame.src='https://www.youtube-nocookie.com/embed/'+song.id+'?autoplay=1&mute=0&playsinline=1&rel=0';
+    btn.textContent='↻ Restart with sound';
+  });
+  const note=panel.querySelector('.worship-note');
+  if(note)note.textContent='The video starts muted when your browser permits autoplay. Choose “Play with sound” to hear worship music. Some browsers may require pressing Play within YouTube.';
+});
