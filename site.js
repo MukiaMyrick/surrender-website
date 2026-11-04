@@ -33,9 +33,23 @@ if(document.querySelector('textarea[data-journal]')) {
 }
 
 
+function getSurrenderFeaturedDay(){
+  const fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'});
+  const p=Object.fromEntries(fmt.formatToParts(new Date()).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));
+  const day=Math.floor((Date.UTC(+p.year,+p.month-1,+p.day)-Date.UTC(2026,10,9))/86400000)-(Number(p.hour)<7?1:0);
+  return Math.max(0,Math.min(3,day));
+}
 /* SURRENDER worship video: official YouTube embed; browsers generally mute autoplay. */
 document.querySelectorAll('[data-worship-player]').forEach((panel)=>{
-  const song={id:'QS04WbSnxok',name:'Trust In God',artist:'Elevation Worship',reason:'A worship reminder that God is faithful, even when the next step is uncertain.'};
+  const songs=[
+    {id:'QS04WbSnxok',name:'Trust In God',artist:'Elevation Worship',reason:'Day 1 — Trust God with your whole heart.'},
+    {id:'2SqdhSU6Q7w',name:'Gracefully Broken / Who The Son Sets Free',artist:'Tasha Cobbs Leonard & Israel Houghton',reason:'Day 2 — Release what you cannot control and give your worries to God.'},
+    {id:'JpYzwASoEV0',name:'You Know My Name',artist:'Tasha Cobbs Leonard',reason:'Day 3 — Remember that God knows and calls you His own.'},
+    {id:'J4v5IXbEauM',name:'I Give Myself Away',artist:'William McDowell',reason:'Day 4 — Offer your life and gifts for God’s purpose.'}
+  ];
+  const selected=panel.dataset.worshipIndex;
+  const dayIndex=selected!==undefined ? Math.max(0,Math.min(songs.length-1,Number(selected))) : getSurrenderFeaturedDay();
+  const song=songs[dayIndex];
   const set=(selector,value)=>{const el=panel.querySelector(selector);if(el)el.textContent=value;};
   set('[data-worship-theme]','Featured worship for your devotional');
   set('[data-worship-title]',song.name);
@@ -47,7 +61,7 @@ document.querySelectorAll('[data-worship-player]').forEach((panel)=>{
   const btn=panel.querySelector('[data-worship-play]');
   if(!slot||!btn)return;
   const frame=document.createElement('iframe');
-  frame.title='Trust In God — Elevation Worship (official live worship video)';
+  frame.title=song.name+' — '+song.artist+' (worship music video)';
   frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
   frame.allowFullscreen=true;
   frame.loading='eager';
