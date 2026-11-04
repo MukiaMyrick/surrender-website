@@ -43,9 +43,9 @@ function getSurrenderFeaturedDay(){
 document.querySelectorAll('[data-worship-player]').forEach((panel)=>{
   const songs=[
     {id:'QS04WbSnxok',name:'Trust In God',artist:'Elevation Worship',reason:'Day 1 — Trust God with your whole heart.'},
-    {id:'2SqdhSU6Q7w',name:'Gracefully Broken / Who The Son Sets Free',artist:'Tasha Cobbs Leonard & Israel Houghton',reason:'Day 2 — Release what you cannot control and give your worries to God.'},
-    {id:'JpYzwASoEV0',name:'You Know My Name',artist:'Tasha Cobbs Leonard',reason:'Day 3 — Remember that God knows and calls you His own.'},
-    {id:'J4v5IXbEauM',name:'I Give Myself Away',artist:'William McDowell',reason:'Day 4 — Offer your life and gifts for God’s purpose.'}
+    {id:'DfY2y6AeDn0',name:'Another Surrender',artist:'Woman Evolve Worship & Naomi Raine',reason:'Day 2 — Release what you cannot control and surrender your worries to God.'},
+    {id:'i14yf9bk9cg',name:'All Authority (Live)',artist:'Woman Evolve Worship & Tasha Cobbs Leonard',reason:'Day 3 — Walk in the new identity and strength you have in Christ.'},
+    {id:'q5m09rqOoxE',name:'Promises',artist:'Maverick City Music feat. Joe L Barnes & Naomi Raine',reason:'Day 4 — Walk in purpose with confidence in God’s faithfulness.'}
   ];
   const selected=panel.dataset.worshipIndex;
   const dayIndex=selected!==undefined ? Math.max(0,Math.min(songs.length-1,Number(selected))) : getSurrenderFeaturedDay();
